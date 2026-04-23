@@ -52,7 +52,7 @@ AutoStream-Agent/
 ### 1. Clone Repository
 
 ```bash
-git clone <your-repo-link>
+git clone https://github.com/SayanPal12/autostream-agent
 cd AutoStream-Agent
 ```
 
