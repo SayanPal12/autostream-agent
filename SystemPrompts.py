@@ -365,7 +365,7 @@ If any field is still missing:
 reply should politely ask only for the next missing field.
 
 Known creator platforms:
-YouTube, Instagram, TikTok, Facebook, Twitch, LinkedIn, Other
+YouTube, Instagram, TikTok, Facebook, Twitch, LinkedIn, Other(The name of the platform user mentions)
 
 """)
 
