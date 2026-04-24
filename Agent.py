@@ -23,8 +23,6 @@ llm= ChatGroq(model="openai/gpt-oss-120b")
 
 embedding= GoogleGenerativeAIEmbeddings(model="gemini-embedding-001")
 
-vec = embedding.embed_query("Machine learning is changing healthcare.")
-
 loader= TextLoader(file_path="pricing.md", encoding='utf-8')
 docs=loader.load()
 
