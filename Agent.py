@@ -98,7 +98,11 @@ class AgentState(TypedDict):
     platform: str=None
 
 def intent_finder(state: AgentState)-> AgentState:
-    query= [intent_prompt]+ [HumanMessage(content=state["user_input"])]
+    if(len(state['messages']))>5:
+        history= state['messages'][-5:]
+    else:
+        history= state['messages']
+    query= [intent_prompt]+history+ [HumanMessage(content=state["user_input"])]
     result= llm_with_structure.invoke(query)
     return {"intent": result.intent}
 
