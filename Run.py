@@ -5,7 +5,7 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 config={"configurable": {"thread_id": "user1"}}
 while True:
     user_input= input("Enter ....")
-    if user_input.lower =="exit" or user_input.lower =="bye":
+    if user_input.lower() =="exit" or user_input.lower() =="bye":
         print("User: exit")
         print("AI: Bye.")
         break
