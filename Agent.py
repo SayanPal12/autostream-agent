@@ -1,4 +1,5 @@
 import warnings
+import os
 warnings.filterwarnings("ignore", category=FutureWarning)
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -32,11 +33,19 @@ splitter= RecursiveCharacterTextSplitter(
 )
 
 chunks=splitter.split_documents(docs)
-vector_store= Chroma.from_documents(
-    documents=chunks,
-    embedding=embedding,
-    persist_directory="./chroma_db"
-)
+db_path = "./chroma_db"
+
+if os.path.exists(db_path):
+    vector_store = Chroma(
+        persist_directory=db_path,
+        embedding_function=embedding
+    )
+else:
+    vector_store = Chroma.from_documents(
+        documents=chunks,
+        embedding=embedding,
+        persist_directory=db_path
+    )
 
 retriever= vector_store.as_retriever(search_type='similarity', search_kwargs={'k':2})
 
